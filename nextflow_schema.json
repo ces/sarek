@@ -238,6 +238,12 @@
                     "description": "Turn on the joint germline variant calling for GATK haplotypecaller",
                     "help_text": "Uses all normal germline samples (as designated by `status` in the input csv) in the joint germline variant calling process."
                 },
+                "flow_mode": {
+                    "type": "boolean",
+                    "fa_icon": "fas fa-toolbox",
+                    "description": "Turn on the flow-mode for GATK haplotypecaller",
+                    "help_text": "Single argument for enabling the bulk of Flow Based features (uses STANDARD)"
+                },
                 "ascat_min_base_qual": {
                     "type": "number",
                     "default": 20,
