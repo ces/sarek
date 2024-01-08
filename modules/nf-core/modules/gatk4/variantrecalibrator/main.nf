@@ -4,8 +4,8 @@ process GATK4_VARIANTRECALIBRATOR {
 
     conda (params.enable_conda ? "bioconda::gatk4=4.2.6.1" : null)
     container "${ workflow.containerEngine == 'singularity' && !task.ext.singularity_pull_docker_container ?
-        'https://depot.galaxyproject.org/singularity/gatk4:4.3.0.0--py36hdfd78af_0':
-        'quay.io/biocontainers/gatk4:4.3.0.0--py36hdfd78af_0' }"
+        'https://depot.galaxyproject.org/singularity/gatk4:4.4.0.0--py36hdfd78af_0':
+        'quay.io/biocontainers/gatk4:4.4.0.0--py36hdfd78af_0' }"
 
     input:
     tuple val(meta), path(vcf), path(tbi) // input vcf and tbi of variants to recalibrate
@@ -47,6 +47,7 @@ process GATK4_VARIANTRECALIBRATOR {
         $reference_command \\
         --tmp-dir . \\
         --rscript-file output.plots.R \\
+        --dont-run-rscript \\
         $labels_command \\
         $args
 
